@@ -42,6 +42,8 @@ export default function Home() {
         <h2>Weather in {data.name}</h2>
         <p>Temperature: {(data.main.temp - 273.15).toFixed(2)} °C</p>
         <p>Feels Like: {(data.main.feels_like - 273.15).toFixed(2)} °C</p>
+        <p>Minimum Temp: {(data.main.temp_min - 273.15).toFixed(2)} °C</p>
+        <p>Maximum Temp: {(data.main.temp_max - 273.15).toFixed(2)} °C</p>
         <p>Conditions: {data.weather[0].description}</p>
       </div>
     );
