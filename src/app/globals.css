@@ -42,8 +42,9 @@ h2 {
 }
 p{
   font-size: 1.5rem;
-  margin: 5px 0;
+  margin: 15px 0;
   font-weight: bold;
+  color:rgb(128, 213, 255)
 }
 .errorDisplay{
   font-size: 1.5rem;

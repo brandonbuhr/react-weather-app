@@ -40,10 +40,10 @@ export default function Home() {
     return (
       <div>
         <p>Location: {data.name}</p>
-        <p>Temperature:  {(data.main.temp - 273.15).toFixed(0)} °C</p>
-        <p>Feels Like:   {(data.main.feels_like - 273.15).toFixed(0)} °C</p>
-        <p>Minimum Temp: {(data.main.temp_min - 273.15).toFixed(0)} °C</p>
-        <p>Maximum Temp: {(data.main.temp_max - 273.15).toFixed(0)} °C</p>
+        <p>Temperature:  {(data.main.temp - 273.15).toFixed(0)} °C / {((data.main.temp - 273.15) * 9/5 + 32).toFixed(0)} °F</p>
+        <p>Feels Like:   {(data.main.feels_like - 273.15).toFixed(0)} °C / {((data.main.feels_like - 273.15) * 9/5 + 32).toFixed(0)} °F</p>
+        <p>Minimum Temp: {(data.main.temp_min - 273.15).toFixed(0)} °C / {((data.main.temp_min - 273.15) * 9/5 + 32).toFixed(0)} °F</p>
+        <p>Maximum Temp: {(data.main.temp_max - 273.15).toFixed(0)} °C / {((data.main.temp_max - 273.15) * 9/5 + 32).toFixed(0)} °F</p>
         <p>Humidity: {data.main.humidity} %</p>
         <p>Wind Speed: {data.wind.speed} m/s</p>
         <p>Conditions:   {data.weather[0].description}</p>
