@@ -7,7 +7,7 @@ export default function Home() {
 
   const apiKey = "fcfafdc38749742de0009711d835be26";
 
-  const getWeatherData = async (city) => {
+  const getWeatherData = async (city, state) => {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
     const response = await fetch(apiUrl);
     if (!response.ok) {
@@ -31,7 +31,7 @@ export default function Home() {
         setError(error.message);
       }
     } else {
-      setError("Please enter a city");
+      setError("Please enter a city, state, or country");
       setWeatherData(null);
     }
   };
@@ -39,12 +39,14 @@ export default function Home() {
   const displayWeatherInfo = (data) => {
     return (
       <div>
-        <h2>Weather in {data.name}</h2>
-        <p>Temperature: {(data.main.temp - 273.15).toFixed(2)} °C</p>
-        <p>Feels Like: {(data.main.feels_like - 273.15).toFixed(2)} °C</p>
-        <p>Minimum Temp: {(data.main.temp_min - 273.15).toFixed(2)} °C</p>
-        <p>Maximum Temp: {(data.main.temp_max - 273.15).toFixed(2)} °C</p>
-        <p>Conditions: {data.weather[0].description}</p>
+        <p>Location: {data.name}</p>
+        <p>Temperature:  {(data.main.temp - 273.15).toFixed(0)} °C</p>
+        <p>Feels Like:   {(data.main.feels_like - 273.15).toFixed(0)} °C</p>
+        <p>Minimum Temp: {(data.main.temp_min - 273.15).toFixed(0)} °C</p>
+        <p>Maximum Temp: {(data.main.temp_max - 273.15).toFixed(0)} °C</p>
+        <p>Humidity: {data.main.humidity} %</p>
+        <p>Wind Speed: {data.wind.speed} m/s</p>
+        <p>Conditions:   {data.weather[0].description}</p>
       </div>
     );
   };
@@ -52,11 +54,13 @@ export default function Home() {
   return (
     <div>
       <form className="weatherForm" onSubmit={handleSubmit}>
-        <input type="text" name="city" className="cityInput" placeholder="Enter city" />
+        <input type="text" name="city" className="cityInput" placeholder="Enter city, state, or country" />
         <button type="submit">Submit</button>
       </form>
 
       <div className="card">
+        <h1>Weather App</h1>
+       <img src= "https://basmilius.github.io/weather-icons/production/fill/all/overcast-day.svg" />
         {error && (
           <p className="errorDisplay">{error}</p>
         )}
