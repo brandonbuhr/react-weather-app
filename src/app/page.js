@@ -60,7 +60,7 @@ export default function Home() {
 
       <div className="card">
         <h1>Weather App</h1>
-       <img src= "https://basmilius.github.io/weather-icons/production/fill/all/overcast-day.svg" />
+       <img src= "https://basmilius.github.io/weather-icons/production/fill/all/overcast-day.svg" className="weather-icon" />
         {error && (
           <p className="errorDisplay">{error}</p>
         )}
